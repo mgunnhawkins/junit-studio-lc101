@@ -81,15 +81,21 @@ public class BalancedBracketsTest {
     }
 
     //12. ]text[ is false
-    @Test //TEST DOES NOT PASS
-    public void insideOutBracketsWithTextReturnsFalse(){
-        assertFalse(BalancedBrackets.hasBalancedBrackets("]LaunchCode["));
+    @Test
+    public void insideOutBracketsWithHangingBracketReturnsFalse(){
+        assertFalse(BalancedBrackets.hasBalancedBrackets("][]"));
     }
-    //  13. text ][ is false
-    @Test //TEST DOES NOT PASS
-    public void textOutsideBracketsInWrongOrderReturnFalse(){
-       assertFalse(BalancedBrackets.hasBalancedBrackets("LaunchCode]["));
+    //  13. text []] is false
+    @Test
+    public void threeBracketsReturnsFalse(){
+       assertFalse(BalancedBrackets.hasBalancedBrackets("[]]"));
     }
+    //14 [] text] is false
+    @Test
+    public void hangingBracketOnEndReturnsFalse(){
+        assertFalse(BalancedBrackets.hasBalancedBrackets("[]launchcode["));
+    }
+
 
 
 
